@@ -1,0 +1,30 @@
+# apiVersion: batch/v1
+# kind: CronJob
+# metadata:
+#   name: nginx-ingress-restart
+#   namespace: ingress-nginx
+# spec:
+#   schedule: "0 0 1 * *"
+#   jobTemplate:
+#     spec:
+#       template:
+#         spec:
+#           serviceAccountName: nginx-ingress-sa
+#           containers:
+#             - name: kubectl-container
+#               image: bitnami/kubectl:latest
+#               command: ["kubectl"]
+#               args: ["rollout", "restart", "ds", "nginx-ingress-controller"]
+#           restartPolicy: OnFailure
+
+
+
+
+
+
+
+
+
+schedule: "0 14 12-18 * 6"
+  startingDeadlineSeconds: 3600
+  concurrencyPolicy: Forbid
